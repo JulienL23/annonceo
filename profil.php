@@ -23,11 +23,11 @@ require_once('inc/header.php');
 
     <div class="profil_infos">
         <ul>
-            <li><b>Pseudo : <?= $pseudo ?></b></li>
-            <li><b>Prénom : <?= $prenom ?></b></li>
-            <li><b>Nom : <?= $nom ?></b></li>
-            <li><b>Email : <?= $email ?></b></li>
-            <li><b>Téléphone : <?= $telephone ?></b></li>
+            <li><b><span class="stpro">Pseudo : </span> <?= $pseudo ?></b></li><hr>
+            <li><b><span class="stpro">Prénom : </span> <?= $prenom ?></b></li><hr>
+            <li><b><span class="stpro">Nom : </span> <?= $nom ?></b></li><hr>
+            <li><b><span class="stpro">Email : </span> <?= $email ?></b></li><hr>
+            <li><b><span class="stpro">Téléphone : </span> <?= $telephone ?></b></li>
         </ul>
     </div>
 </div>

@@ -112,7 +112,7 @@ if (!empty($_POST)) {
                 $mdp = md5($_POST['mdp']); // md5 va crypter le mdp selon en hashage 64o
 
                 // requete INSERT
-                    $resultat = $pdo -> prepare("INSERT INTO membre (pseudo, mdp, nom, prenom, telephone, email, civilite, statut) VALUES (:pseudo, :mdp, :nom, :prenom, :telephone, :email, :civilite, 1)");
+                    $resultat = $pdo -> prepare("INSERT INTO membre (pseudo, mdp, nom, prenom, telephone, email, civilite) VALUES (:pseudo, :mdp, :nom, :prenom, :telephone, :email, :civilite)");
 
                     $resultat -> bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
                     $resultat -> bindParam(':mdp', $mdp, PDO::PARAM_STR);
@@ -145,7 +145,6 @@ require_once('inc/header.php');
 
 <!-- CONTENU HTML -->
 <h1>S'inscrire :</h1>
-<div class="formu">
 
 <form class="coucou" action="" method="post">
     <?= $msg ?>
@@ -160,7 +159,7 @@ require_once('inc/header.php');
 
     <input type="text" name="email" value="<?= $email ?>" placeholder="Votre email"><br><br>
 
-    <input type="text" name="telephone" value="<?= $telephone ?>" placeholder="Votre téléphone"><br><br>
+    <input type="text" name="telephone" value="<?= $telephone ?>" placeholder="Votre téléphone" maxlength="10"><br><br>
 
     <select name="civilite">
         <option value="homme">Homme</option>
@@ -171,7 +170,6 @@ require_once('inc/header.php');
 
 </form>
 
-</div>
 <?php
 require_once('inc/footer.php');
 ?>
