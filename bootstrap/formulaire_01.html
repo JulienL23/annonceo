@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulaire 1</title>
+    <style media="screen">
+        *{ font-family: 'Open Sans', sans-serif;}
+        h1{ background: linear-gradient(indigo, lightgrey, purple); color: white; padding: 10px; font-size: 14px; text-align: center; margin-top: 0px;}
+        label { display: inline-block; font-weight: bold; font-style: italic; color: midnightblue; width: 140px; font-size: 11px;}
+        .genre { display: inline-block; font-weight: bold; font-style: italic; color: midnightblue; width: 140px; font-size: 11px;}
+        .input { width: 100%; background-color: lightcyan; border: 1px solid thistle;}
+        textarea { width: 100%; background-color: lightcyan; border: 1px solid thistle; min-height: 60px;}
+        form { padding: 0px 10px;}
+        .container { width: 500px; margin: 0 auto; border: 1px solid indigo;}
+        .bouton { width: 104%; background: linear-gradient(indigo, lightgrey, purple); color: white; padding: 10px; font-size: 14px; margin-left: -10px;}
+        .bouton:hover { background: linear-gradient(slateblue, grey)  color: white; cursor: pointer; font-weight: bold;}
+        .obs{ font-style: italic; font-size: 8px;}
+        .datenaiss .jour .mois{ display: inline-block;}
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Informations de contact</h1>
+        <form method="post" action="">
+        <hr>
+        <label for="nom">Nom</label>
+        </hr>
+        <input type="text" id="nom" value="" class="input" placeholder="Dupont"><br>
+
+
+        <label for="prenom">Prénom</label>
+        <input type="text" id="prenom" value="" class="input"><br>
+
+        <label for="telephone">Téléphone</label>
+        <input type="text" id="telephone" value="" class="input"><br>
+
+        <label for="profession">Profession</label>
+        <input type="text" id="profession" name="profession" value="" class="input"><br>
+
+        <label for="ville">Ville</label>
+        <input type="text" id="ville" value="" class="input"><br>
+
+        <label for="cp">Code postal <span class="obs">(5 chiffres)</span></label>
+        <input type="text" id="cp" name="cp" maxlength="" class="input"><br>
+
+        <label for="adresse">Adresse</label>
+        <input type="text" id="adresse" name="adresse" value="" class="input"><br>
+
+        <label for="datenaiss">Date de naissance</label>
+        <select class="" name="datenaiss">
+            <option value="" selected disabled>Jour</option>
+            <option value="">1</option>
+            <option value="">2</option>
+        </select>
+
+        <select class="" name="mois">
+            <option value="" selected disabled>Mois</option>
+            <option value="">1</option>
+            <option value="">2</option>
+        </select>
+
+        <select class="" name="an">
+            <option value="" selected disabled>Année</option>
+            <option value="">1800</option>
+            <option value="">2020</option>
+        </select><br />
+
+        <label for="genre">Genre</label>
+        <p class="genre"><input type="radio" id="genre" name="genre" value="m" checked="Homme">Homme</p>
+        <p class="genre"><input type="radio" name="genre" value="f">Femme</p><br />
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="8" cols="80" class="input"></textarea><br />
+        <hr>
+        <input type="submit" name="enregistrer" value="Enregistrer" class="bouton">
+        </hr>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
