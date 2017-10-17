@@ -58,8 +58,8 @@ if(!empty($_POST)){
         $msg .= '<p style="color: white; background: #AB1212; padding: 5px">Veuillez renseigner votre code postal</p>';
     }
     else{
-        if(strlen($_POST['cp']) == 5){
-            $msg .= '<p style="color: white; background: #AB1212; padding: 5px">Attention : votre code postal doit comporter 5 chiffres.</p>';
+        if(strlen($_POST['cp']) != 5){
+            $msg .= '<p style="color: white; background: #AB1212; padding: 5px">Attention : votre code postal doit comporter au minimum 5 chiffres.</p>';
         }
         else{
             if(!is_numeric($_POST['cp'])){
@@ -68,25 +68,30 @@ if(!empty($_POST)){
         }
     }
 
-    if(isset($_POST['photo'])){ // Si le formulaire de connexion est activé
+	if (!empty($_FILES['photo']['name'])) { // Si une photo est uploadée
+        $nom_photo = time() . '_' . $_FILES['photo']['name'];
+        // Si la photo est nommée tshirt.jpg, on va lui donnée un nom plus compliquée : XX24_54634_tshirt.jpg pour éviter les doublons possibles sur le serveur (cf les noms des photos sur facebook par exemple).
 
-    	if (!empty($_FILES['img']['name'])) {
+        $chemin_photo = $_SERVER['DOCUMENT_ROOT'] . RACINE_SITE . '/photo/' . $nom_photo;
+        // chemin : c://xampp/htdocs github/WebForce3/PHP/site/ photo/ XX23_546464_tshirt.jpg
 
-    		$photo = time() . '_' . rand(0, 5000) . '_' . $_FILES['img']['name'];
-    		echo $photo;
+        $ext = array('image/png', 'image/jpeg', 'image/gig');
+        if(!in_array($_FILES['photo']['type'], $ext)){
+            $msg .= '<div class="erreut">Images autorisées : PNG, JPG, JPEG et GIF</div>';
+            // Si le fichier uploadée ne correspond pas aux extensions autorisées (ici PNG, JPEG, JPG et GIF) alors on affiche un message d'erreur.
+        }
 
-    		if ($_FILES['img']['type'] == 'image/jpeg' ||
-    			$_FILES['img']['type'] == 'image/gif' ||
-    			$_FILES['img']['type'] == 'image/png' ){
+        if ($_FILES['photo']['size'] > 2000000) {
+            $msg .= '<div class="erreur">Images : 2Mo maximum autorisé</div>';
+            // Si la photo uploadées est trop volumineuse (ici 2Mo max), alors on met un message d'erreur.
+            // Par défeut XAMPP eutorise 2,5Mo. Voir dans php.ini, rechercher upload_max_file_size=2.5M
+        }
 
-    			if ($_FILES['img']['size'] < 2000000) {
-    				copy($_FILES['img']['tmp_name'], __DIR__ . '/img/' . $photo);
-    			}
-    		}
-    	}
-    	else {
-    		$photo = 'default.jpg';
-    	}
+        if (empty($msg) && $_FILES['photo']['error'] == 0) {
+
+            copy($_FILES['photo']['tmp_name'], $chemin_photo);
+            // On enregistre la photo sur le serveur. Dans les faits, on la copier depuis son emplacement temporaire et on la colle dans son emplacement définitif.
+        }
     }
 
     if(empty($msg)){ // Tout est OK !!
@@ -95,13 +100,13 @@ if(!empty($_POST)){
 		// Il y a des données sensibles dans la future requête, car nous allons insérer toutes les infos transmises, par l'utilisateur. Il peut avoir tenté des injections SQL !!
 		//prepare() + execute() : DELETE-REPLACE-INSERT-UPDATE-SELECT - SHOW si données sensibles
 
-    $resultat = $pdo -> prepare("INSERT INTO annonce (titre, description_courte, description_longue, prix, photo, pays, ville, adresse, cp) VALUES (:titre, :description_courte, :description_longue, :prix, :photo, :pays, :ville, :adresse, :cp) ");
+    $resultat = $pdo -> prepare("INSERT INTO annonce (titre, description_courte, description_longue, prix, photo, pays, ville, adresse, cp, date_enregistrement) VALUES (:titre, :description_courte, :description_longue, :prix, :photo, :pays, :ville, :adresse, :cp, NOW()) ");
 
     $resultat -> bindParam(':titre', $_POST['titre'], PDO::PARAM_STR);
     $resultat -> bindParam(':description_courte', $_POST['description_courte'], PDO::PARAM_STR);
     $resultat -> bindParam(':description_longue', $_POST['description_longue'], PDO::PARAM_STR);
     $resultat -> bindParam(':prix', $_POST['prix'], PDO::PARAM_INT);
-    $resultat -> bindParam(':photo', $photo, PDO::PARAM_STR);
+    $resultat -> bindParam(':photo', $chemin_photo, PDO::PARAM_STR);
     $resultat -> bindParam(':pays', $_POST['pays'], PDO::PARAM_STR);
     $resultat -> bindParam(':ville', $_POST['ville'], PDO::PARAM_STR);
     $resultat -> bindParam(':adresse', $_POST['adresse'], PDO::PARAM_STR);
@@ -109,8 +114,7 @@ if(!empty($_POST)){
 
         // Attention à ne pas oublier d'exécuter la requête
         if($resultat -> execute()){
-
-            $msg .= '<p style="color: white; background: #2EB872; padding: 5px">Félicitations, l\'annonce a été ajoutée !</p>';
+			header('location:fiche_annonce.php');
         }
     }
 }
@@ -118,10 +122,9 @@ if(!empty($_POST)){
 require_once('inc/header.php');
 ?>
 
-
 <h1>Déposer une annonce :</h1>
 
-<form class="coucou" action="" method="post">
+<form class="coucou" action="" method="post" enctype=multipart/form-data>
 
     <?= $msg ?>
 
@@ -145,7 +148,7 @@ require_once('inc/header.php');
     </select><br><br>
 
     <label for="">Photo</label><br>
-    <input type="text" name="photo" value=""><br><br>
+    <input type="file" name="photo" value=""><br><br>
 
     <label for="">Pays</label><br>
     <select name="pays">
@@ -172,7 +175,6 @@ require_once('inc/header.php');
     <input type="submit" value="Enregistrer">
 
 </form>
-
 <?php
 require_once('inc/footer.php');
-?>
+ ?>
