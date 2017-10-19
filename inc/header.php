@@ -7,26 +7,40 @@
     <body>
         <header>
 			<div class="conteneur">
-                <img src="libs/logo.png" alt="">
+                <img src="<?= RACINE_SITE ?>libs/logo.png" alt="">
 				<span>
 					<a href="" title="Mon Site">Annonceo</a>
                 </span>
 				<nav>
+                    <div id="na">
+                        <ul id="menu">
 
-                        <?php if(userConnecte()) : ?>
-                        <a class="<?=( $page == 'Profil') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>profil.php">Profil</a>
-                        <a href="<?= RACINE_SITE ?>connexion.php?action=deconnexion">Déconnexion</a>
-                        <?php else : ?>
-    					<a class="<?=( $page == 'Inscription') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>inscription.php">Inscription</a>
-    					<a class="<?=( $page == 'Connexion') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>connexion.php">Connexion</a>
-                        <?php endif; ?>
+                            <?php if(userConnecte()) : ?>
+                                <li><a class="<?=( $page == 'Profil') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>profil.php">Profil</a></li>
+                                <li><a class="<?=( $page == 'Index') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>index.php">Accueil</a></li>
+                                <li><a class="<?=( $page == 'Depose Annonce') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>depose_annonce.php">Déposer Annonce</a></li>
+                            <?php else : ?>
+            					<li><a class="<?=( $page == 'Inscription') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>inscription.php">Inscription</a></li>
+            					<li><a class="<?=( $page == 'Connexion') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>connexion.php">Connexion</a></li>
+                            <?php endif; ?>
+                            <?php if(userAdmin()) : ?>
+                                <li>
+                                    <a href="#">Gestion</a>
+                                    <ul>
+                                        <li><a class="<?=( $page == 'Gestion Annonces') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>backoffice/gestion_des_annonces.php">Gestion Annonces</a></li>
+                                        <li><a class="<?=( $page == 'Gestion Membres') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>backoffice/gestion_des_membres.php">Gestion Membres</a></li>
+                                        <li><a class="<?=( $page == 'Gestion Catégorie') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>backoffice/gestion_des_categories.php">Gestion Catégories</a></li>
+                                        <li><a class="<?=( $page == 'Gestion Commentaire') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>backoffice/gestion_des_commentaires.php">Gestion Commentaires</a></li>
+                                        <li><a class="<?=( $page == 'Gestion Note') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>backoffice/gestion_des_notes.php">Gestion Notes</a></li>
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
+                            <?php if(userConnecte()) : ?>
+                                <li><a href="<?= RACINE_SITE ?>connexion.php?action=deconnexion">Déconnexion</a></li>
+                            <?php endif; ?>
 
-                        <?php if(userAdmin()) : ?>
-    					<a class="<?=( $page == 'Boutique') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>boutique.php">Boutique</a>
-                        <a class="<?=( $page == 'Gestion Boutique') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>backoffice/gestion_boutique.php">Gestion Boutique</a>
-                        <a class="<?=( $page == 'Gestion Membres') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>backoffice/gestion_membres.php">Gestion Membres</a>
-                        <?php endif; ?>
-
+                        </ul>
+                    </div>
 				</nav>
 			</div>
         </header>

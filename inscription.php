@@ -112,7 +112,7 @@ if (!empty($_POST)) {
                 $mdp = md5($_POST['mdp']); // md5 va crypter le mdp selon en hashage 64o
 
                 // requete INSERT
-                    $resultat = $pdo -> prepare("INSERT INTO membre (pseudo, mdp, nom, prenom, telephone, email, civilite) VALUES (:pseudo, :mdp, :nom, :prenom, :telephone, :email, :civilite)");
+                    $resultat = $pdo -> prepare("INSERT INTO membre (pseudo, mdp, nom, prenom, telephone, email, civilite, date_enregistrement) VALUES (:pseudo, :mdp, :nom, :prenom, :telephone, :email, :civilite,  NOW())");
 
                     $resultat -> bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
                     $resultat -> bindParam(':mdp', $mdp, PDO::PARAM_STR);

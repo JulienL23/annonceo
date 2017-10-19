@@ -17,6 +17,7 @@ $contenu = ''; // nous permettra ponctuellement de stocker du contenu a afficher
 // CHEMINS
 // toujours mettre le / avant et aprés mon chemin
 define('RACINE_SITE','/annonceo/');
+define('URL','http://localhost/annonceo');
 
 
 require('fonctions.php');

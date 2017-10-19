@@ -72,8 +72,9 @@ if(!empty($_POST)){
         $nom_photo = time() . '_' . $_FILES['photo']['name'];
         // Si la photo est nommée tshirt.jpg, on va lui donnée un nom plus compliquée : XX24_54634_tshirt.jpg pour éviter les doublons possibles sur le serveur (cf les noms des photos sur facebook par exemple).
 
-        $chemin_photo = $_SERVER['DOCUMENT_ROOT'] . RACINE_SITE . '/photo/' . $nom_photo;
-        // chemin : c://xampp/htdocs github/WebForce3/PHP/site/ photo/ XX23_546464_tshirt.jpg
+        $chemin_photo = $_SERVER['DOCUMENT_ROOT'] . RACINE_SITE . 'photo/' . $nom_photo;
+        //chemin : c://xampp/htdocs github/WebForce3/PHP/site/ photo/ XX23_546464_tshirt.jpg
+		$url_photo = URL . '/photo/' . $nom_photo;
 
         $ext = array('image/png', 'image/jpeg', 'image/gig');
         if(!in_array($_FILES['photo']['type'], $ext)){
@@ -106,7 +107,7 @@ if(!empty($_POST)){
     $resultat -> bindParam(':description_courte', $_POST['description_courte'], PDO::PARAM_STR);
     $resultat -> bindParam(':description_longue', $_POST['description_longue'], PDO::PARAM_STR);
     $resultat -> bindParam(':prix', $_POST['prix'], PDO::PARAM_INT);
-    $resultat -> bindParam(':photo', $chemin_photo, PDO::PARAM_STR);
+    $resultat -> bindParam(':photo', $url_photo, PDO::PARAM_STR);
     $resultat -> bindParam(':pays', $_POST['pays'], PDO::PARAM_STR);
     $resultat -> bindParam(':ville', $_POST['ville'], PDO::PARAM_STR);
     $resultat -> bindParam(':adresse', $_POST['adresse'], PDO::PARAM_STR);
@@ -114,7 +115,8 @@ if(!empty($_POST)){
 
         // Attention à ne pas oublier d'exécuter la requête
         if($resultat -> execute()){
-			header('location:fiche_annonce.php');
+			$pdt_insert = $pdo->lastInsertId();
+			header('location:fiche_annonce.php?msg=validation&id=' . $pdt_insert);
         }
     }
 }
@@ -142,9 +144,9 @@ require_once('inc/header.php');
 
     <label for="">Catégorie</label><br>
     <select name="categorie">
-        <option value="voiture">Voiture</option>
-        <option value="appartement">Appartement</option>
-        <option value="electroménager">Electroménager</option>
+        <option value="">Auto - Moto</option>
+        <option value="">Multimedia</option>
+        <option value="">Vêtement - Accessoires</option>
     </select><br><br>
 
     <label for="">Photo</label><br>
