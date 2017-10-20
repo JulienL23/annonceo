@@ -20,6 +20,7 @@
                                 <li><a class="<?=( $page == 'Index') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>index.php">Accueil</a></li>
                                 <li><a class="<?=( $page == 'Depose Annonce') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>depose_annonce.php">Déposer Annonce</a></li>
                             <?php else : ?>
+                                <li><a class="<?=( $page == 'Index') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>index.php">Accueil</a></li>
             					<li><a class="<?=( $page == 'Inscription') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>inscription.php">Inscription</a></li>
             					<li><a class="<?=( $page == 'Connexion') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>connexion.php">Connexion</a></li>
                             <?php endif; ?>
