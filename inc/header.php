@@ -9,7 +9,7 @@
 			<div class="conteneur">
                 <img src="<?= RACINE_SITE ?>libs/logo.png" alt="">
 				<span>
-					<a href="" title="Mon Site">Annonceo</a>
+					<a href="" title="Mon Site">/CashBox\</a>
                 </span>
 				<nav>
                     <div id="na">
