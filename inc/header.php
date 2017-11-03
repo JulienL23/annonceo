@@ -3,20 +3,20 @@
     <head>
         <title>Mon Site - <?= $page ?></title>
         <link rel="stylesheet" href="<?= RACINE_SITE ?>css/style.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     </head>
     <body>
         <header>
 			<div class="conteneur">
                 <img src="<?= RACINE_SITE ?>libs/logo.png" alt="">
-				<span>
-					<a href="" title="Mon Site">/CashBox\</a>
+				<span class="tSite">
+					<a href="<?= RACINE_SITE ?>index.php" title="Mon Site">Money Cloud</a>
                 </span>
 				<nav>
                     <div id="na">
                         <ul id="menu">
 
                             <?php if(userConnecte()) : ?>
-                                <li><a class="<?=( $page == 'Profil') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>profil.php">Profil</a></li>
                                 <li><a class="<?=( $page == 'Index') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>index.php">Accueil</a></li>
                                 <li><a class="<?=( $page == 'Depose Annonce') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>depose_annonce.php">Déposer Annonce</a></li>
                             <?php else : ?>
@@ -27,7 +27,7 @@
                             <?php if(userAdmin()) : ?>
                                 <li>
                                     <a href="#">Gestion</a>
-                                    <ul>
+                                    <ul class="menu">
                                         <li><a class="<?=( $page == 'Gestion Annonces') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>backoffice/gestion_des_annonces.php">Gestion Annonces</a></li>
                                         <li><a class="<?=( $page == 'Gestion Membres') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>backoffice/gestion_des_membres.php">Gestion Membres</a></li>
                                         <li><a class="<?=( $page == 'Gestion Catégorie') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>backoffice/gestion_des_categories.php">Gestion Catégories</a></li>
@@ -37,6 +37,7 @@
                                 </li>
                             <?php endif; ?>
                             <?php if(userConnecte()) : ?>
+                                <li><a class="<?=( $page == 'Profil') ? 'active' : '' ?>" href="<?= RACINE_SITE ?>profil.php">Profil</a></li>
                                 <li><a href="<?= RACINE_SITE ?>connexion.php?action=deconnexion">Déconnexion</a></li>
                             <?php endif; ?>
 
