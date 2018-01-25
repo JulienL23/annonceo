@@ -1,6 +1,6 @@
 /**************************************************** GENERAL ************************************************/
 *{ margin: 0; }
-body{ font-family : verdana; font-size: 12px; }
+body{ font-family : verdana; font-size: 12px;}
 a{ text-decoration: none; color: #000; }
 .conteneur{ margin: 0 auto; max-width: 1460px;}
 /**************************************************** HAUT ************************************************/
@@ -8,7 +8,7 @@ header { background: #403F48; padding: 70px; text-align: center; font-size: 20px
 header img{ width: 10%;}
 .tSite{font-family: verdana; font-size: 46px; font-weight: bold; margin-right: 5%; }
 header  nav{ display: inline; }
-header  a{color: #181715; text-decoration: none; padding: 23px 5px; }
+header  a{color: #181715; text-decoration: none; padding: 23px 5px; text-decoration: underline; }
 header  nav  a:hover, a.active{ background: #F46060; transition: 0.5s;}
 /**************************************************** MILIEU ************************************************/
 section{ padding: 30px; min-height: 800px; }
@@ -29,159 +29,159 @@ footer{     background: #403F48; padding: 20px; text-align: center; font-size: 2
 .boutique-droite{float: left; width: 60%; }
 .boutique-produit{ float: left; width: 30%; text-align: center; padding: 5%; border-bottom: 1px solid #c0c0c0; }
 .profil .boutique-produit{
-	width: 22%;
+    width: 22%;
 }
 .boutique-produit:hover{ background: #f09872; }
 /**************************************************** BOUTIQUE ************************************************/
 /***************************************************** PROFIL *************************************************/
 
 .profil img{
-	width: 23%;
+    width: 23%;
 }
 /***********************************************GESTION MENU********************************************/
 /*****Menu Déroulant*****/
 #menu, #menu ul /* Liste */{
-        padding : 0; /* pas de marge intérieure */
-        margin : 0; /* ni extérieure */
-        list-style : none; /* on supprime le style par défaut de la liste */
-        line-height : 21px; /* on définit une hauteur pour chaque élément */
-        text-align : center; /* on centre le texte qui se trouve dans la liste */
+    padding : 0; /* pas de marge intérieure */
+    margin : 0; /* ni extérieure */
+    list-style : none; /* on supprime le style par défaut de la liste */
+    line-height : 21px; /* on définit une hauteur pour chaque élément */
+    text-align : center; /* on centre le texte qui se trouve dans la liste */
 }
 
 #menu /* Ensemble du menu */{
-        font-weight : bold; /* on met le texte en gras */
-        font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
-        font-size : 12px; /* hauteur du texte : 12 pixels */
+    font-weight : bold; /* on met le texte en gras */
+    font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
+    font-size : 12px; /* hauteur du texte : 12 pixels */
 }
 
 #menu a /* Contenu des listes */{
-		display: block;
-		padding: 0;
-		background: lightgrey;
-		color: #000;
-		text-decoration: none;
-		width: 245px;
-		font-size: 23px;
-		padding: 13px;
+    display: block;
+    padding: 0;
+    background: lightgrey;
+    color: #000;
+    text-decoration: none;
+    width: 245px;
+    font-size: 23px;
+    padding: 13px;
 }
 
 #menu li /* Elements des listes */{
-        float : left;
-        /* pour IE qui ne reconnaît pas "transparent" */
-        border-right : 1px solid #fff; /* on met une bordure blanche à droite de chaque élément */
+    float : left;
+    /* pour IE qui ne reconnaît pas "transparent" */
+    border-right : 1px solid #fff; /* on met une bordure blanche à droite de chaque élément */
 }
 
 /* IE ne reconnaissant pas le sélecteur ">" */
 html>body #menu li{
-        border-right: 1px solid transparent ; /* on met une bordure transparente à droite de chaque élément */
+    border-right: 1px solid transparent ; /* on met une bordure transparente à droite de chaque élément */
 }
 
 #menu li ul /* Sous-listes */{
-        position: absolute; /* Position absolue */
-        width: 144px; /* Largeur des sous-listes */
-        left: -999em; /* Hop, on envoie loin du champ de vision */
+    position: absolute; /* Position absolue */
+    width: 144px; /* Largeur des sous-listes */
+    left: -999em; /* Hop, on envoie loin du champ de vision */
 }
 
 
 #menu li ul li /* Éléments de sous-listes */{
-        /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
-        border-top : 1px solid #fff; /* on met une bordure blanche en haut de chaque élément d'une sous liste */
+    /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
+    border-top : 1px solid #fff; /* on met une bordure blanche en haut de chaque élément d'une sous liste */
 }
 
 /* IE ne reconnaissant pas le sélecteur ">" */
 html>body #menu li ul li{
-        border-top : 1px solid transparent; /* on met une bordure transparente en haut de chaque élément */
+    border-top : 1px solid transparent; /* on met une bordure transparente en haut de chaque élément */
 }
 
 #menu li ul ul{
-        margin    : -22px 0 0 144px ; /* On décale les sous-sous-listes pour qu'elles ne soient pas au dessus des sous-listes */
-        /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
-        border-left     : 1px solid #fff ; /* Petite bordure à gauche pour ne pas coller ... */
+    margin    : -22px 0 0 144px ; /* On décale les sous-sous-listes pour qu'elles ne soient pas au dessus des sous-listes */
+    /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
+    border-left     : 1px solid #fff ; /* Petite bordure à gauche pour ne pas coller ... */
 }
 
 /* IE ne reconnaissant pas le sélecteur ">" ... je me répète ;-) */
 html>body #menu li ul ul{
-        border-left     : 1px solid transparent ; /* on met une bordure transparente sur la gauche de chaque élément */
+    border-left     : 1px solid transparent ; /* on met une bordure transparente sur la gauche de chaque élément */
 }
 
 #menu a:hover /* Lorsque la souris passe sur un des liens */{
-        color: #fff; /* On passe le texte en noir... */
-        background: #f09872; /* ... et au contraire, le fond en blanc */
+    color: #fff; /* On passe le texte en noir... */
+    background: #f09872; /* ... et au contraire, le fond en blanc */
 }
 
 #menu li:hover ul ul, #menu li.sfhover ul ul /* Sous-sous-listes lorsque la souris passe sur un élément de liste */
 {
-        left: -999em; /* On expédie les sous-sous-listes hors du champ de vision */
+    left: -999em; /* On expédie les sous-sous-listes hors du champ de vision */
 }
 
 #menu li:hover ul, #menu li li:hover ul, #menu li.sfhover ul, #menu li li.sfhover ul  /* Sous-listes lorsque la souris passe sur un élément de liste ET sous-sous-lites lorsque la souris passe sur un élément de sous-liste */
 {
-        left: auto; /* Repositionnement normal */
-        min-height: 0; /* Corrige un bug sous IE */
+    left: auto; /* Repositionnement normal */
+    min-height: 0; /* Corrige un bug sous IE */
 }
 
 #na{
-	margin-top: 30px;
+    margin-top: 30px;
 }
 #menu a{
-	border: 1px solid black;
+    border: 1px solid black;
 }
 #menu a:hover{
-	border: 1px solid #912d4e;
+    border: 1px solid #912d4e;
 }
 
 /***********************************************GESTION DES ANNONCES********************************************/
 .ges_tab{
-	border: 4px solid lightgrey;
+    border: 4px solid lightgrey;
     background: #403e48;
     color: white;
     margin: 0 auto;
 }
 
 .add_ann{
-	border: 3px solid lightgrey;
-	background: #403e48;
-	color: white;
-	padding: 10px;
-	font-size: 20px;
+    border: 3px solid lightgrey;
+    background: #403e48;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
 }
 .add_ann:hover{
-	background: #fa9f58;
-	color: black;
-	transition: 0.5s;
+    background: #fa9f58;
+    color: black;
+    transition: 0.5s;
 }
 /***********************************************GESTION DE BOUTIQUE********************************************/
 
 .btn-add{
-	padding: 3px 10px;
-	font-size: 20px;
-	border: 3px solid black;
-	background: #f09872;
+    padding: 3px 10px;
+    font-size: 20px;
+    border: 3px solid black;
+    background: #f09872;
 }
 .btn-add:hover{
-	background: #F46060;
-	color: white;
-	transition: .5s;
+    background: #F46060;
+    color: white;
+    transition: .5s;
 }
 
 /**************************************************** Formulaire ************************************************/
 form{
-	margin-top: 20px;
-	padding: 20px;
-	background : silver;
-	overflow: hidden;
-	background: #403F48;
+    margin-top: 20px;
+    padding: 20px;
+    background : silver;
+    overflow: hidden;
+    background: #403F48;
     border-radius: 10px;
-	box-shadow: 0px 0px 23px 10px #f09872;
+    box-shadow: 0px 0px 23px 10px #f09872;
 }
 
 form label{
-	float: left;
-	width: 25%;
-	height: 40px;
-	line-height: 40px;
-	vertical-align: middle;
-	margin-top: 10px;
+    float: left;
+    width: 25%;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    margin-top: 10px;
     margin-left: 36%;
     color: white;
     font-size: 16px;
@@ -189,80 +189,80 @@ form label{
 }
 
 form input, form select, form textarea{
-	float: left;
-	width: 70%;
-	height: 40px;
-	line-height: 40px;
-	vertical-align: middle;
-	margin-top: 10px;
+    float: left;
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    margin-top: 10px;
     margin-left: 14%;
-	text-indent: 20px;
-	border: none;
-	border: 1px solid white;
-	border-radius: 10px;
+    text-indent: 20px;
+    border: none;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 
 form input[type='file']{
-	text-indent: 0;
-	padding-top: 10px;
-	line-height: 20px;
-	padding-left: 5%;
-	width:65%;
-	height: 45px;
-	background-color: #DCE8BA;
+    text-indent: 0;
+    padding-top: 10px;
+    line-height: 20px;
+    padding-left: 5%;
+    width:65%;
+    height: 45px;
+    background-color: #DCE8BA;
 }
 
 form textarea{
-	height: 120px;
-	resize: none;
-	border: none;
+    height: 120px;
+    resize: none;
+    border: none;
 }
 
 form input:focus{
-	border: 1px solid black;
+    border: 1px solid black;
 }
 
 form input[type='submit']{
-	margin-left: 25%;
+    margin-left: 25%;
 }
 
 form input[type='submit']:hover{
-	cursor: pointer;
+    cursor: pointer;
 
 }
 
 form input[type="submit"]{
-	border : 2px solid #f09872;
-	background : transparent;
-	color: #f09872;
-	font-weight: bold;
-	border-radius : 3px;
-	padding: 10px;
+    border : 2px solid #f09872;
+    background : transparent;
+    color: #f09872;
+    font-weight: bold;
+    border-radius : 3px;
+    padding: 10px;
     margin-left: 14%;
-	text-align: center;
-	cursor: pointer;
-	transition: 0.5s;
-	vertical-align: middle;
-	line-height: 20px;
-	text-indent: 0px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+    vertical-align: middle;
+    line-height: 20px;
+    text-indent: 0px;
 
 }
 
 form input[type="submit"]:hover{
-	border : 2px solid white;
-	background-color: #f09872;
-	color: white;
-	transition: 1.5s;
+    border : 2px solid white;
+    background-color: #f09872;
+    color: white;
+    transition: 1.5s;
 
 }
 
 table{ border-collapse: collapse;}
 hr{
-	margin: 20px 0;
+    margin: 20px 0;
 }
 h1{margin-bottom: 20px;}
 table tr td{
-text-align: center;
+    text-align: center;
 }
 td, th{ padding: 5px; }
 
@@ -283,70 +283,70 @@ td, th{ padding: 5px; }
 
 .profil ul,
 .profil li{
-	list-style:none;
-	margin: 0;
-	padding: 0;
+    list-style:none;
+    margin: 0;
+    padding: 0;
 }
 
 .profil_img{
-	width: 18%;
-	border: 7px solid white;
-	box-shadow: 0px 3px 5px grey;
-	overflow:hidden;
+    width: 18%;
+    border: 7px solid white;
+    box-shadow: 0px 3px 5px grey;
+    overflow:hidden;
 
 }
 
 .profil_img img{
-	width: 100%;
-	max-width:200px;
+    width: 100%;
+    max-width:200px;
 }
 
 .profil_adresse,
 .profil_infos{
-	border: 4px solid lightgrey;
-	border-radius: 10px;
-	margin: 10px 0;
-	padding: 10px;
+    border: 4px solid lightgrey;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
 }
 
 
 span.bulle{
-	color: white;
-	text-align: center;
-	width: 15px;
-	height: 16px;
-	border-radius: 15px;
-	line-height: 15px;
-	vertical-align: middle;
-	background: red;
-	margin-left: 4px;
-	display: inline-block;
-	margin-right: 5px;
-	font-size: 10px;
-	font-family: arial;
+    color: white;
+    text-align: center;
+    width: 15px;
+    height: 16px;
+    border-radius: 15px;
+    line-height: 15px;
+    vertical-align: middle;
+    background: red;
+    margin-left: 4px;
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 10px;
+    font-family: arial;
 }
 
 
 /* Notation */
 /*.notation{
-	height: 20px;
-	margin-top: 15px
+        height: 20px;
+        margin-top: 15px
 }
 
 .notation a.star{
-	height: 15px;
-	width: 15px;
-	display: block;
-	float: left;
-	margin: 0 2px;
-	background: url(../img/star.png) left top no-repeat;
-	background-size: 15px 15px;
+        height: 15px;
+        width: 15px;
+        display: block;
+        float: left;
+        margin: 0 2px;
+        background: url(../img/star.png) left top no-repeat;
+        background-size: 15px 15px;
 
 }
 
 .notation a.star:hover {
-	background: url(../img/star-2.png) left top no-repeat;
-	background-size: 15px 15px;
+        background: url(../img/star-2.png) left top no-repeat;
+        background-size: 15px 15px;
 }*/
 
 /*******************************RESPONSIVE*******************************************/
